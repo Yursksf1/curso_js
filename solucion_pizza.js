@@ -1,8 +1,8 @@
-let pizza = 12.5
+let pizza1 = 12.5
 let pizza2 = 15 
 let pizza3 = 22.5
 
-let area1 = Math.PI * pizza ** 2 * 3;
+let area1 = Math.PI * pizza1 ** 2 * 3;
 let area2 = Math.PI * pizza2 ** 2 * 2;
 let area3 = Math.PI * pizza3 ** 2 * 1;
 
