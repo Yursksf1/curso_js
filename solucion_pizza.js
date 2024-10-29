@@ -25,4 +25,4 @@ if (area3 > mayorArea) {
     mayorAreaNombre = "Área 3";
 }
 
-console.log(${mayorAreaNombre} es la mayor:, mayorArea)
+console.log(`${mayorAreaNombre} es la mayor:, mayorArea`)
