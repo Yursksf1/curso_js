@@ -17,17 +17,34 @@
 
 /*OPERACIONES LOGICAS
 Negación (!): Invierte el valor de verdad de una proposición.
-
 Conjunción (&&): Verdadero si ambas proposiciones son verdaderas.
-
 Disyunción (||): Verdadero si al menos una proposición es verdadera.
 */
 
 // Negaciones
-
 !false //true
 !true //false
 
 // Conjunción (&&) y Disyunción (||)
 true && false // false
 true || false // true
+
+
+/*
+Ejercicio:
+1. crea un programa que retorne la opreacion contraria a la que ingrese el usuario
+ejemplo:
+si el usuario ingresa "true" el programa debe imprimir false
+si el usuario ingresa "false" el programa debe imprimir true
+
+2. Crea un progrma en Js que le solicite al usuario la edad
+- el programa debe validar si la persona es mayor de edad o no
+
+3. evalua la siguiente expresion de logica:
+P = true
+Q = False
+
+a que equivale
+- (p o no q)
+- (no p o no (q y p))
+*/
