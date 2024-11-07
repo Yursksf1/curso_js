@@ -72,6 +72,7 @@
       <button onclick="run('no_q')">No Q</button>
       <button onclick="run('p_y_q')">P y Q</button>
       <button onclick="run('p_o_q')">P o Q</button>
+      <button onclick="run('np_o_nq')">No P o No Q</button>
       <h3>Resultado: <span id="resultado">__</span></h3>
 
     <script>
@@ -87,6 +88,8 @@
                 resultado = num1 && num2;
             }else if (param == "p_o_q") {
                 resultado =  num1 || num2;
+            }else if (param == "np_o_nq") {
+                resultado =  !num1 || !num2;
             }
             resultado = resultado ? 1 : 0;
             document.getElementById('resultado').textContent = resultado
