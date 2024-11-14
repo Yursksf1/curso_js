@@ -33,8 +33,8 @@ console.log("Índice de 'Uva':", fruits.indexOf('Uva')); // -1 (no está en la l
 
 
 // filtros
-const filteredFruits = fruits.filter(fruit => fruit.includes('a'));
-console.log("Frutas que contienen la letra 'a':", filteredFruits);
+const filteredFruits = fruits.filter(fruit => fruit.includes('M'));
+console.log("Frutas que contienen la letra 'M':", filteredFruits);
 
 
 const upperCaseFruits = fruits.map(fruit => fruit.toUpperCase());
@@ -43,3 +43,14 @@ console.log("Lista en mayúsculas:", upperCaseFruits);
 fruits.forEach((fruit, index) => {
     console.log(`Fruta en índice ${index}: ${fruit}`);
 });
+
+
+/*
+EJERCICIO
+1. definir una lista de almenos 5 elementos con verduras
+2. agregar 2 verduras nuevas, una al principio. y otra al final de la lista
+3. ordenar la lista
+4. eliminar el ultimo elemento
+5. crear una nueva lista con las verduras en mayuscula
+6. imprimir la lista
+*/ 

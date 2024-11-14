@@ -44,3 +44,14 @@ Diferencias entre map y forEach
 map: Retorna un nuevo array con los resultados de aplicar la función de transformación.
 forEach: No retorna un nuevo array; solo ejecuta la función en cada elemento.
 */
+
+
+/*
+EJERCICIOS:
+1. Imprimir los numero del 0 al 30
+2. Crear un menu de comida saludable ["avena", "arroz integral", "leche"] (agregar mas elementos)
+    imprimir los elementos del menu, en mayuscula con un foreach
+3. definir una lista de estudiantes, con la estructura de nombre, y promedio (1 a 100) , 
+    aplicar un filtro para seleccionar los estudiantes que estan con notas superiores al promedio, 
+    (se debe calcular el promedio del grupo general)
+*/
