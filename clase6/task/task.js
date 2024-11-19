@@ -1,35 +1,4 @@
 let tareas = [
-    "limpiar la mesa",
-    "lavar los platos",
-    "ordenar habitacion",
-]
-
-function agregar_tarea() {
-    new_task = prompt("ingresa una nueva tarea: ")
-    tareas.push(new_task)
-}
-
-function imprimir_lista_tareas() {
-    tareas.forEach(tarea => {
-        console.log(tarea)
-    })
-}
-
-function eliminar_tarea() {
-    tareas.pop()
-}
-
-agregar_tarea()
-agregar_tarea()
-imprimir_lista_tareas()
-agregar_tarea()
-agregar_tarea()
-imprimir_lista_tareas()
-eliminar_tarea()
-imprimir_lista_tareas()
-
-
-tareas_1 = [
     {
         "tarea": "Enviar correo del seguimiento a cliente X",
         "prioridad": "baja",
@@ -43,3 +12,37 @@ tareas_1 = [
         "prioridad": "baja",
     }
 ]
+
+function agregar_tarea() {
+    const new_task = prompt("ingresa una nueva tarea: ")
+    const prioridad = prompt("indica la prioridad: ")
+    const tarea = {
+        "tarea": new_task,
+        "prioridad": prioridad,
+    }
+    tareas.push(tarea)
+}
+
+function imprimir_lista_tareas(solo_prioridad_alta) {
+    tareas.forEach(tarea_obj => {
+        if (!solo_prioridad_alta || tarea_obj.prioridad == 'alta') {
+            console.log(tarea_obj.tarea)
+            console.log(tarea_obj.prioridad)
+            console.log("")
+        } 
+    })
+}
+
+function eliminar_tarea() {
+    tareas.pop()
+}
+
+agregar_tarea()
+agregar_tarea()
+imprimir_lista_tareas(true)
+agregar_tarea()
+agregar_tarea()
+imprimir_lista_tareas(solo_prioridad_alta = true)
+eliminar_tarea()
+imprimir_lista_tareas()
+
