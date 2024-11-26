@@ -30,3 +30,12 @@ const puestos = [
         experiencia: 2 // years
     }
 ]
+
+
+const imprimirLista = (lista) => {
+    lista.forEach(element => {
+        console.log(
+            `${element.nombre} - ${element.experiencia}`
+        )
+    });
+}
