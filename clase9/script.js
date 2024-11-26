@@ -1,5 +1,6 @@
 console.log('hola mundo, vamos a hacer unos formularios js') 
 window.onload = (e) => {
+    renderizar()
     document.getElementById("p_guardar").addEventListener("click", () => {
         console.log('acabamos de presionar el boton de guardar')
         const nombre = document.getElementById("p_name").value
@@ -12,8 +13,13 @@ window.onload = (e) => {
             "tecnologias": tecnologias,
             "experiencia": experiencia,
         }
-        
+
         aspirantes.push(data)
+        renderizar()
+        document.getElementById("p_name").value = ""
+        document.getElementById("p_skill").value = ""
+        document.getElementById("p_technology").value = ""
+        document.getElementById("p_experience").value = ""
     } ) 
 }
 
@@ -55,5 +61,15 @@ const imprimirLista = (lista) => {
         console.log(
             `${element.nombre} - ${element.experiencia}`
         )
+    });
+}
+
+const renderizar = () => {
+    const aspirantesList = document.getElementById("render");
+    aspirantesList.innerHTML = ""
+    aspirantes.forEach(aspirante => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${aspirante.nombre} - ${aspirante.tecnologias} - ${aspirante.habilidades} - ${aspirante.experiencia} `;
+    aspirantesList.appendChild(listItem);
     });
 }
