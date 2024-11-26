@@ -1,4 +1,22 @@
 console.log('hola mundo, vamos a hacer unos formularios js') 
+window.onload = (e) => {
+    document.getElementById("p_guardar").addEventListener("click", () => {
+        console.log('acabamos de presionar el boton de guardar')
+        const nombre = document.getElementById("p_name").value
+        const habilidades = document.getElementById("p_skill").value.split(", ")
+        const tecnologias = document.getElementById("p_technology").value.split(", ")
+        const experiencia = parseInt(document.getElementById("p_experience").value)
+        const data = {
+            "nombre": nombre,
+            "habilidades": habilidades,
+            "tecnologias": tecnologias,
+            "experiencia": experiencia,
+        }
+        
+        aspirantes.push(data)
+    } ) 
+}
+
 
 const aspirantes = [
     {
