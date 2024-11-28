@@ -199,4 +199,10 @@ const resnderizarOrden = (id) => {
 20. 2) modificar la funcion de resnderizarOrden (esta funcion renderiza los puestos a los que puede aspirar una persona), 
     agregar un filtro por experiencia, debe excluir los puestos que no soliciten mas anios de experiencia que tiene el usario
 25. 3) modificar la funcion para filtrar, que el usuario en concideracion cumpla con TODAS las tecnoligias, y almenos una habilidad
+
+Actividad:
+hacer el punto 1 (agregar mas elementos)
+las empresas de esta aplicacion, no necesitan que los usuarios postulantes cumplan todas las tecnoligias, 
+por lo tanto si cumplen con la experiencia y almenos 2 tecnologias, se puede visualizar en el render de puestos.
+
 */
