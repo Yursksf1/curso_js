@@ -49,14 +49,14 @@ window.onload = (e) => {
 const aspirantes = [
     {
         nombre: "Juan",
-        tecnologias: ["Python"],
+        tecnologias: ["Python", "Javascript", "CSS", "HTML", "Boostrap", "PHP", "SLQ"],
         habilidades: ["liderazgo", "Scrum","Manejo de conflictos"],
         experiencia: 5 // years
     },
     {
         nombre: "camila",
-        tecnologias: ["Javascript"],
-        habilidades: ["ciencia de datos", "Analizis","Toma de deciciones"],
+        tecnologias: ["matlab", "Python", "R", "C#"],
+        habilidades: ["ciencia de datos", "Analizis", "Toma de deciciones", "comunicacion"],
         experiencia: 3 // years
     }
 ]
@@ -156,13 +156,13 @@ const resnderizarOrden = (id) => {
         // si cumple almenos una tecnologia y una habilidad lo vamos a dejar pasar
         const tecnologiasc = puesto["tecnologiasc"]
         const tecnologiasp = persona["tecnologias"]
-        let cumpleTecnologia = false
+        let cumpleTecnologia = true
+        console.log('tecnologiasc', tecnologiasc)
+        console.log('tecnologiasp', tecnologiasp)
         tecnologiasc.forEach(tecnologiac => {
-            tecnologiasp.forEach(tecnologiap => {
-                if (tecnologiac == tecnologiap) {
-                    cumpleTecnologia = true
-                }
-            })
+            if (!(tecnologiasp.includes(tecnologiac))){
+                cumpleTecnologia = false
+            } 
         });
 
         const habilidadesc = puesto["habilidadesc"]
@@ -175,8 +175,12 @@ const resnderizarOrden = (id) => {
                 }
             })
         });
-
-        return cumpleTecnologia || cumpleHabilidad
+        console.log("")
+        console.log("cargo",puesto.cargo)
+        console.log("cumpleTecnologia",cumpleTecnologia)
+        console.log("cumpleHabilidad",cumpleHabilidad)
+        console.log("exp",persona.experiencia >= puesto.experienciac)
+        return (cumpleTecnologia && cumpleHabilidad) && persona.experiencia >= puesto.experienciac
     })
 
     aspirantesList.innerHTML = ""
@@ -187,3 +191,12 @@ const resnderizarOrden = (id) => {
     });
 
 }
+
+
+// Ejercicio:
+/*
+15. 1) agregar mas elementos a los registros iniciales, 10 puestos y 10 aspirantes -- datos que quieran poner
+20. 2) modificar la funcion de resnderizarOrden (esta funcion renderiza los puestos a los que puede aspirar una persona), 
+    agregar un filtro por experiencia, debe excluir los puestos que no soliciten mas anios de experiencia que tiene el usario
+25. 3) modificar la funcion para filtrar, que el usuario en concideracion cumpla con TODAS las tecnoligias, y almenos una habilidad
+*/
