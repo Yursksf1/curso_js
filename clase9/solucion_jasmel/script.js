@@ -49,13 +49,13 @@ window.onload = (e) => {
 const aspirantes = [
     {
         nombre: "Juan",
-        tecnologias: ["Javascript", "Python"],
+        tecnologias: ["Python"],
         habilidades: ["liderazgo", "Scrum","Manejo de conflictos"],
         experiencia: 5 // years
     },
     {
         nombre: "camila",
-        tecnologias: ["Javascript", "Python"],
+        tecnologias: ["Javascript"],
         habilidades: ["ciencia de datos", "Analizis","Toma de deciciones"],
         experiencia: 3 // years
     }
@@ -90,10 +90,16 @@ const imprimirLista = (lista) => {
 const renderizar = () => {
     const aspirantesList = document.getElementById("render");
     aspirantesList.innerHTML = ""
-    aspirantes.forEach(aspirante => {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${aspirante.nombre} - ${aspirante.tecnologias} - ${aspirante.habilidades} - ${aspirante.experiencia} `;
-    aspirantesList.appendChild(listItem);
+    aspirantes.forEach((aspirante, idx)=> {
+        const listItem = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerHTML = "listar"
+        button.id = `listar_p${idx}`
+        listItem.appendChild(button);
+        listItem.innerHTML = listItem.innerHTML + ` ${aspirante.nombre} - ${aspirante.tecnologias} - ${aspirante.habilidades} - ${aspirante.experiencia} `;
+        aspirantesList.appendChild(listItem);
+        
+        button = document.getElementById(`listar_p${idx}`).addEventListener("click", resnderizarOrden)
     });
 }
 
@@ -107,9 +113,27 @@ const imprimirListac = (listac) => {
 const renderizarc = () => {
     const puestosList = document.getElementById("renderc");
     puestosList.innerHTML = ""
-    puestos.forEach(puesto => {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${puesto.cargo} - ${puesto.tecnologiasc} - ${puesto.habilidadesc} - ${puesto.experienciac} `;
-    puestosList.appendChild(listItem);
+    puestos.forEach((puesto, idx) => {
+        const listItem = document.createElement("li");
+        const button = document.createElement("button");
+        button.innerHTML = "listar"
+        button.id = `listar_c${idx}`
+        listItem.appendChild(button);
+        listItem.innerHTML = listItem.innerHTML + ` ${puesto.cargo} - ${puesto.tecnologiasc} - ${puesto.habilidadesc} - ${puesto.experienciac} `;
+        puestosList.appendChild(listItem);
     });
+}
+
+
+const resnderizarOrden = () => {
+    const aspirantesList = document.getElementById("render_puestos");
+    // TODO: odenar la lista de los puestos de trabajo por los atributos del aspirante
+    
+    aspirantesList.innerHTML = ""
+    puestos.forEach((puesto, idx) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = ` ${puesto.cargo} - ${puesto.tecnologiasc} - ${puesto.habilidadesc} - ${puesto.experienciac} `;
+        aspirantesList.appendChild(listItem);
+    });
+
 }
