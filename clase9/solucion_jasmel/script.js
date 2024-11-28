@@ -71,7 +71,7 @@ const puestos = [
     },
     {
         cargo: "Data Analyst",
-        tecnologiasc: ["matlab", "Python"],
+        tecnologiasc: ["matlab", "Python", "Javascript"],
         habilidadesc: [, "Analizis", "Toma de deciciones"],
         experienciac: 2 // years
     },
@@ -153,7 +153,7 @@ const resnderizarOrden = (id) => {
     const aspirantesList = document.getElementById("render_puestos");
     const persona = aspirantes[id]
     const newPuestos = puestos.filter((puesto) => {
-        // si cumple almenos una tecnologia lo vamos a dejar pasar
+        // si cumple almenos una tecnologia y una habilidad lo vamos a dejar pasar
         const tecnologiasc = puesto["tecnologiasc"]
         const tecnologiasp = persona["tecnologias"]
         let cumpleTecnologia = false
@@ -165,7 +165,18 @@ const resnderizarOrden = (id) => {
             })
         });
 
-        return cumpleTecnologia
+        const habilidadesc = puesto["habilidadesc"]
+        const habilidadesp = persona["habilidades"]
+        let cumpleHabilidad = false
+        habilidadesc.forEach(habilidadc => {
+            habilidadesp.forEach(habilidadp => {
+                if (habilidadc == habilidadp) {
+                    cumpleHabilidad = true
+                }
+            })
+        });
+
+        return cumpleTecnologia || cumpleHabilidad
     })
 
     aspirantesList.innerHTML = ""
