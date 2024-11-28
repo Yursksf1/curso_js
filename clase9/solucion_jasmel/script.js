@@ -74,7 +74,31 @@ const puestos = [
         tecnologiasc: ["matlab", "Python"],
         habilidadesc: [, "Analizis", "Toma de deciciones"],
         experienciac: 2 // years
-    }
+    },
+    {
+        cargo: "Desarrollador backend ",
+        tecnologiasc: ["Python", "SLQ"],
+        habilidadesc: ["liderazgo", "Scrum",],
+        experienciac: 4 // years
+    },
+    {
+        cargo: "Produc owner",
+        tecnologiasc: ["Python"],
+        habilidadesc: [, "liderazgo", "scrum"],
+        experienciac: 5 // years
+    },
+    {
+        cargo: "Desarrollador frontend",
+        tecnologiasc: ["Javascript", "CSS", "HTML", "Boostrap"],
+        habilidadesc: ["comunicacion", "rest",],
+        experienciac: 1 // years
+    },
+    {
+        cargo: "Data Analyst junior",
+        tecnologiasc: ["matlab", "Python", "R", "C#"],
+        habilidadesc: [, "Analizis", "matematicas"],
+        experienciac: 1 // years
+    },
 ]
 
 
@@ -98,8 +122,8 @@ const renderizar = () => {
         listItem.appendChild(button);
         listItem.innerHTML = listItem.innerHTML + ` ${aspirante.nombre} - ${aspirante.tecnologias} - ${aspirante.habilidades} - ${aspirante.experiencia} `;
         aspirantesList.appendChild(listItem);
-        
-        button = document.getElementById(`listar_p${idx}`).addEventListener("click", resnderizarOrden)
+
+        button = document.getElementById(`listar_p${idx}`).addEventListener("click", () => resnderizarOrden(idx))
     });
 }
 
@@ -125,12 +149,27 @@ const renderizarc = () => {
 }
 
 
-const resnderizarOrden = () => {
+const resnderizarOrden = (id) => {
     const aspirantesList = document.getElementById("render_puestos");
-    // TODO: odenar la lista de los puestos de trabajo por los atributos del aspirante
-    
+    const persona = aspirantes[id]
+    const newPuestos = puestos.filter((puesto) => {
+        // si cumple almenos una tecnologia lo vamos a dejar pasar
+        const tecnologiasc = puesto["tecnologiasc"]
+        const tecnologiasp = persona["tecnologias"]
+        let cumpleTecnologia = false
+        tecnologiasc.forEach(tecnologiac => {
+            tecnologiasp.forEach(tecnologiap => {
+                if (tecnologiac == tecnologiap) {
+                    cumpleTecnologia = true
+                }
+            })
+        });
+
+        return cumpleTecnologia
+    })
+
     aspirantesList.innerHTML = ""
-    puestos.forEach((puesto, idx) => {
+    newPuestos.forEach((puesto, idx) => {
         const listItem = document.createElement("li");
         listItem.textContent = ` ${puesto.cargo} - ${puesto.tecnologiasc} - ${puesto.habilidadesc} - ${puesto.experienciac} `;
         aspirantesList.appendChild(listItem);
