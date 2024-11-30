@@ -265,14 +265,14 @@ const renderizarOrdenC = (id) => {
         const tecnologiasc = aspirante["tecnologias"]
         const tecnologiasp = puesto["tecnologiasc"]
 
-        let cumpleTecnologia = true
+        let contTeconologias = 0
         tecnologiasc.forEach(tecnologiac => {
-            if (!(tecnologiasp.includes(tecnologiac))){
-                cumpleTecnologia = false
+            if (tecnologiasp.includes(tecnologiac)){
+                contTeconologias = contTeconologias + 1
             } 
         });
        
-        return (cumpleTecnologia) && puesto.experienciac <= aspirante.experiencia
+        return (contTeconologias >= 2) && puesto.experienciac <= aspirante.experiencia
     })
 
     puestosList.innerHTML = ""
