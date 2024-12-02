@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <button id="boton">Haz clic aquí</button>
+    <div id="mensaje" style="display:none;">¡Hola, jQuery!</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#boton").click(function() {
+                $("#mensaje").toggle();
+            });
+        });
+    </script>
+</body>
+</html>
