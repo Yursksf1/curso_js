@@ -16,6 +16,7 @@ window.onload = (e) => {
         document.getElementById("t_actividad").value = ""
         document.getElementById("t_prioridad").value = ""
     } )
+    document.getElementById("t_filtro").addEventListener("click", renderizarConFiltro)
 }
 
 tareas = [
@@ -59,5 +60,19 @@ const renderizar = () => {
         const listItem = document.createElement("li");
         listItem.innerHTML = ` ${tarea.actividad} - ${tarea.prioridad} `
         tareasList.appendChild(listItem);
+    });
+}
+
+const renderizarConFiltro = () => {
+    const tareasList = document.getElementById("render_filtro");
+    const filtroValor = parseInt(document.getElementById("t_filtro_prioridad").value)
+
+    tareasList.innerHTML = ""
+    tareas.forEach((tarea, idx)=> {
+        if (tarea.prioridad >= filtroValor) {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = ` ${tarea.actividad} - ${tarea.prioridad} `
+            tareasList.appendChild(listItem);
+        }
     });
 }
