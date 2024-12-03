@@ -17,6 +17,7 @@ window.onload = (e) => {
         document.getElementById("t_prioridad").value = ""
     } )
     document.getElementById("t_filtro").addEventListener("click", renderizarConFiltro)
+    document.getElementsByClassName("ejemplo")[3].innerText="nuevo cambio 123"
 }
 
 tareas = [
